@@ -78,9 +78,9 @@ function layout(profile, s, { withProjects }) {
   font(11.5, 'normal', COLOR.accent)
   doc.text(clean(profile.title), left, baseline(11.5))
   advance(11.5, 1.45)
-  const contact = [profile.location, profile.email, profile.website, profile.github]
+  const contact = [profile.phone, profile.email, profile.website, profile.github]
     .filter(Boolean)
-    .join('   |   ')
+    .join(' | ')
   paragraph(contact, 9, 'normal', COLOR.muted)
   y += 2 * s
   rule(COLOR.ink, 1.2)
@@ -144,6 +144,18 @@ function layout(profile, s, { withProjects }) {
     doc.text(clean(edu.school), right, baseline(9.8), { align: 'right' })
     advance(9.8, 1.35)
   })
+
+  // Certifications
+  if (profile.certifications?.length) {
+    sectionTitle('Certifications')
+    profile.certifications.forEach((cert) => {
+      font(9.8, 'bold', COLOR.ink)
+      doc.text(clean(cert.name), left, baseline(9.8))
+      font(9, 'normal', COLOR.muted)
+      doc.text(clean(`${cert.issuer}, ${cert.date}`), right, baseline(9.8), { align: 'right' })
+      advance(9.8, 1.35)
+    })
+  }
 
   return { doc, endY: y }
 }

@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { profile } from '../data/portfolio.js'
 
-// States: idle -> working -> done | error. The PDF library is loaded on click,
-// so visitors who never press the button never download it.
 export default function ResumeButton({ variant = 'primary' }) {
   const [state, setState] = useState('idle')
   const [note, setNote] = useState('')

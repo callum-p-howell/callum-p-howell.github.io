@@ -106,15 +106,38 @@ export function Education() {
   )
 }
 
+export function Certifications() {
+  return (
+    <Block id="certifications" title="Certifications">
+      <ul className="entries">
+        {profile.certifications.map((c) => (
+          <li className="entry" key={c.name}>
+            <header className="entry-head">
+              <h3>{c.name}</h3>
+            </header>
+            <p className="entry-sub">{c.issuer}, {c.date}</p>
+          </li>
+        ))}
+      </ul>
+    </Block>
+  )
+}
+
 export function Contact() {
   return (
     <Block id="contact" title="Contact">
-      <p className="prose">The quickest way to reach me is by email.</p>
+      <p className="prose">The quickest way to reach me is by email or text.</p>
       <dl className="rows">
         <div className="row">
           <dt>Email</dt>
           <dd>
             <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          </dd>
+        </div>
+        <div className="row">
+          <dt>Phone</dt>
+          <dd>
+            <a href={`tel:${profile.phone}`}>{profile.phone}</a>
           </dd>
         </div>
         <div className="row">

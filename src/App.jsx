@@ -1,11 +1,17 @@
+
 import { useEffect, useState } from 'react'
 import { profile, sections } from './data/portfolio.js'
+import { quotes } from './data/quotes.js'
 import ResumeButton from './components/ResumeButton.jsx'
 import ResumePreview from './components/ResumePreview.jsx'
-import { About, Skills, Experience, Projects, Education, Contact } from './components/Sections.jsx'
+import { About, Skills, Experience, Projects, Education, Contact, Certifications } from './components/Sections.jsx'
 
 export default function App() {
   const [active, setActive] = useState('')
+
+  const [randomQuote] = useState(
+    () => quotes[Math.floor(Math.random() * quotes.length)]
+  )
 
   useEffect(() => {
     const targets = sections.map((s) => document.getElementById(s.id)).filter(Boolean)
@@ -52,11 +58,9 @@ export default function App() {
       <main id="main" className="main">
         <header className="hero" id="top">
           <div className="hero-copy">
-            <h1>I build web applications and the internal tools teams rely on.</h1>
+            <h1>{profile.hero}</h1>
             <p className="lead">
-              I’m {profile.name}, a full-stack engineer with over ten years of experience in
-              financial services. React and TypeScript on the front end, C#, Python and VBA behind
-              it.
+              {profile.lead}
             </p>
             <div className="hero-actions">
               <ResumeButton variant="hero" />
@@ -73,10 +77,12 @@ export default function App() {
         <Experience />
         <Projects />
         <Education />
+        <Certifications />
         <Contact />
 
         <footer className="footer">
           <p>© {new Date().getFullYear()} {profile.name}</p>
+          <p className="quote">"{randomQuote}"</p>
         </footer>
       </main>
     </div>
