@@ -14,7 +14,7 @@ export const profile = {
   ],
 
   lead: [
-    'Hi - I’m Callum, a full-stack engineer with over ten years of experience in financial services. React and TypeScript on the front end, C#, Python and VBA behind it.'
+    'Hi - I’m Callum, a full-stack engineer with over ten years of experience in financial services; React and TypeScript on the front end, C#, Python and VBA behind it.'
   ],
 
   about: [
@@ -127,13 +127,8 @@ skills: [
   ],
   certifications: [
     {
-      name: 'CompTIA Security+',
-      issuer: 'CompTIA',
-      date: '2025',
-    },
-    {
-      name: 'PCAP Python Programming',
-      issuer: 'Python Institute',
+      name: 'Certified Full-Stack Developer',
+      issuer: 'FreeCodeCamp',
       date: '2026',
     }
   ],
