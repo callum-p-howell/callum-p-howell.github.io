@@ -113,7 +113,7 @@ export default function ResumePreview() {
               <div className={i > 0 ? 'paper-gap' : undefined} key={c.name}>
                 <div className="paper-job">
                   <b>{c.name}</b>
-                  <span>{c.date}</span>
+                  <span>{c.issuer},{c.date}</span>
                 </div>
               </div>
             ))}
